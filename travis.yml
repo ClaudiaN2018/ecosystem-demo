@@ -1,0 +1,18 @@
+language: java
+branches:
+  only:
+    - develop
+    - /^release-[0-999].[0-999]$/
+    - master
+notifications:
+  email:
+    recipients:
+      - claudialaboral@gmail.com
+# services:
+# - mysql
+# - mongodb
+# before_install:
+# - mysql -e 'CREATE DATABASE IF NOT EXISTS forge;'
+script:
+  #Test unitario y de integracion con cobertura (jacoco)
+  - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
